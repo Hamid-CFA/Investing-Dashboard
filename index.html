@@ -1286,8 +1286,8 @@
 </head>
 <body>
     <div class="header">
-        <h1>📊 Automated Trading Dashboard</h1>
-        <p class="subtitle">Zero Manual Work | Fully Automated | Rules-Based System | Claude AI Enhanced</p>
+        <h1>📊 Growth Stock Investing</h1>
+        <p class="subtitle">Process Driven | Rule Based System</p>
         <div class="sync-status">
             <div class="status-indicator" id="syncStatus"></div>
             <span id="statusText">System fully automated - Ready for trading</span>
@@ -1387,7 +1387,7 @@
                 <div class="metric-card live-updating">
                     <div class="live-indicator"></div>
                     <div class="metric-label">Positions</div>
-                    <div class="metric-value" id="positionCount">7</div>
+                    <div class="metric-value" id="positionCount">5</div>
                 </div>
                 <div class="metric-card warning-metric live-updating">
                     <div class="live-indicator"></div>
@@ -1483,32 +1483,6 @@
                                 <button class="btn btn-success" onclick="addToPosition('RCL')" style="width: auto; padding: 5px 10px; font-size: 0.8em;">Add</button>
                             </td>
                         </tr>
-                        <tr>
-                            <td class="ticker">NVDA</td>
-                            <td style="text-align: right;">25</td>
-                            <td style="text-align: right;">$875.50</td>
-                            <td style="text-align: right;" class="live-price positive">$890.25</td>
-                            <td style="text-align: right;" class="positive">+$369</td>
-                            <td style="text-align: right;" class="positive">+1.7%</td>
-                            <td style="text-align: right;">$815.00</td>
-                            <td style="text-align: right;" class="cushion-good">9.2%</td>
-                            <td style="text-align: center;">
-                                <button class="btn btn-warning" onclick="addToPosition('NVDA')" style="width: auto; padding: 5px 10px; font-size: 0.8em;">Add</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="ticker">TSLA</td>
-                            <td style="text-align: right;">75</td>
-                            <td style="text-align: right;">$245.80</td>
-                            <td style="text-align: right;" class="live-price positive">$268.45</td>
-                            <td style="text-align: right;" class="positive">+$1,699</td>
-                            <td style="text-align: right;" class="positive">+9.2%</td>
-                            <td style="text-align: right;">$228.00</td>
-                            <td style="text-align: right;" class="cushion-good">17.7%</td>
-                            <td style="text-align: center;">
-                                <button class="btn btn-success" onclick="partialSell('TSLA')" style="width: auto; padding: 5px 10px; font-size: 0.8em;">Take Profit</button>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -1592,38 +1566,6 @@
                     </div>
                     <div class="mobile-actions">
                         <button class="mobile-btn btn-success" onclick="addToPosition('RCL')">Add More</button>
-                    </div>
-                </div>
-
-                <div class="mobile-card">
-                    <div class="mobile-card-header">
-                        <span class="mobile-ticker">NVDA</span>
-                        <span class="mobile-pl positive">+$369 (+1.7%)</span>
-                    </div>
-                    <div class="mobile-details">
-                        <div><strong>25</strong> shares</div>
-                        <div>Live: <strong>$890.25</strong></div>
-                        <div>Avg: $875.50</div>
-                        <div>Cushion: <span class="cushion-good">9.2%</span></div>
-                    </div>
-                    <div class="mobile-actions">
-                        <button class="mobile-btn btn-warning" onclick="addToPosition('NVDA')">Add More</button>
-                    </div>
-                </div>
-
-                <div class="mobile-card">
-                    <div class="mobile-card-header">
-                        <span class="mobile-ticker">TSLA</span>
-                        <span class="mobile-pl positive">+$1,699 (+9.2%)</span>
-                    </div>
-                    <div class="mobile-details">
-                        <div><strong>75</strong> shares</div>
-                        <div>Live: <strong>$268.45</strong></div>
-                        <div>Avg: $245.80</div>
-                        <div>Cushion: <span class="cushion-good">17.7%</span></div>
-                    </div>
-                    <div class="mobile-actions">
-                        <button class="mobile-btn btn-success" onclick="partialSell('TSLA')">Take Profit</button>
                     </div>
                 </div>
             </div>
@@ -1916,11 +1858,11 @@
                     <div class="stage-title">Stage 1</div>
                     <div class="stage-details">0.5%</div>
                 </div>
-                <div class="stage-card active">
+                <div class="stage-card">
                     <div class="stage-title">Stage 2</div>
                     <div class="stage-details">1.0%</div>
                 </div>
-                <div class="stage-card">
+                <div class="stage-card active">
                     <div class="stage-title">Stage 3</div>
                     <div class="stage-details">1.5%</div>
                 </div>
@@ -1959,7 +1901,7 @@
             </div>
 
             <div class="alert alert-warning" style="padding: 8px;">
-                ⚠️ <strong>AUTO-STATUS:</strong> Stage 2 active, system managing risk automatically
+                ⚠️ <strong>AUTO-STATUS:</strong> Stage 3 active, system managing risk automatically
             </div>
             
             <button class="btn btn-success" onclick="autoOptimizeExposure()">
@@ -2131,7 +2073,7 @@
         // Portfolio data - automatically managed
         let portfolioData = {
             totalValue: 428038,
-            totalPositions: 7,
+            totalPositions: 5,
             equityAtRisk: 1.3,
             totalPL: 7758,
             exposure: 31.8,
@@ -2140,9 +2082,7 @@
                 { ticker: 'GEV', shares: 80, avgCost: 509.61, lastPrice: 520.75, stopLoss: 484.00, type: 'core' },
                 { ticker: 'RBRK', shares: 240, avgCost: 90.04, lastPrice: 87.89, stopLoss: 85.50, type: 'tactical' },
                 { ticker: 'CRDO', shares: 150, avgCost: 79.15, lastPrice: 93.00, stopLoss: 0, type: 'swing' },
-                { ticker: 'RCL', shares: 40, avgCost: 272.94, lastPrice: 309.14, stopLoss: 260.00, type: 'swing' },
-                { ticker: 'NVDA', shares: 25, avgCost: 875.50, lastPrice: 890.25, stopLoss: 815.00, type: 'core' },
-                { ticker: 'TSLA', shares: 75, avgCost: 245.80, lastPrice: 268.45, stopLoss: 228.00, type: 'swing' }
+                { ticker: 'RCL', shares: 40, avgCost: 272.94, lastPrice: 309.14, stopLoss: 260.00, type: 'swing' }
             ]
         };
 

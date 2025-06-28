@@ -1,61 +1,33 @@
+const sheetURL = "https://script.google.com/macros/s/AKfycbwU9OA7CgnxtoeGOTqXmZT71vVnooyiRxbvMLdjjWeV4Yo7h6ZcycsP0aeMkKB8yy58-g/exec";
 
-// dashboard.js
-function addToPosition(ticker) {
-  alert(`Add more to ${ticker}`);
+function fetchPortfolioData() {
+  fetch(sheetURL)
+    .then(response => response.json())
+    .then(data => updatePortfolioTable(data))
+    .catch(error => console.error("Error fetching sheet data:", error));
 }
 
-function autoSellPosition(ticker) {
-  alert(`Auto-sell triggered for ${ticker}`);
+function updatePortfolioTable(data) {
+  const table = document.getElementById("portfolioTable");
+  table.innerHTML = ""; // Clear old rows
+
+  data.forEach(row => {
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td class="ticker">${row.Ticker}</td>
+      <td>${row.Shares}</td>
+      <td>$${row["Avg Cost"]}</td>
+      <td>$${row["Live Price"]}</td>
+      <td>${row["P&L"]}</td>
+      <td>${row["P&L %"]}</td>
+      <td>${row["Stop Loss"]}</td>
+      <td>${row["Cushion"]}</td>
+      <td><button onclick="addToPosition('${row.Ticker}')">Add</button></td>
+    `;
+    table.appendChild(tr);
+  });
 }
 
-function partialSell(ticker) {
-  alert(`Partial sell triggered for ${ticker}`);
-}
-
-function updateStopLoss() {
-  alert("Stop loss update triggered");
-}
-
-function autoRebalance() {
-  alert("Auto-rebalance triggered");
-}
-
-function calculateAndExecute() {
-  const ticker = document.getElementById("ticker").value;
-  const entry = document.getElementById("entryPrice").value;
-  const stop = document.getElementById("stopLoss").value;
-  alert(`Calculated for ${ticker} at entry $${entry}, stop $${stop}`);
-}
-
-function autoLogEmotion(emotion) {
-  alert(`Emotion logged: ${emotion}`);
-}
-
-function sendToClaude() {
-  const msg = document.getElementById("claudeInput").value;
-  const chatBox = document.getElementById("claudeChat");
-  const message = document.createElement("div");
-  message.classList.add("message", "user");
-  message.innerHTML = `<strong>You:</strong> ${msg}`;
-  chatBox.appendChild(message);
-}
-
-function quickAnalysis(type) {
-  alert(`Running quick ${type} analysis`);
-}
-
-function autoExecuteTrade(ticker, price, type) {
-  alert(`Executing ${type} trade for ${ticker} at $${price}`);
-}
-
-function addToWatchlist() {
-  alert("Add to Watchlist triggered");
-}
-
-function openTradeModal(type) {
-  alert(`Open ${type.toUpperCase()} modal`);
-}
-
-function autoOptimizeExposure() {
-  alert("Auto-Optimize Exposure executed");
-}
+setInterval(fetchPortfolioData, 300000); // Every 5 min
+window.onload = fetchPortfolioData;

@@ -714,10 +714,11 @@
             background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
         }
 
-        /* Responsive Design */
+        /* Enhanced Mobile-Friendly Responsive Design */
         @media (max-width: 1024px) {
             .top-grid {
                 grid-template-columns: 1fr;
+                gap: 15px;
             }
             
             .main-grid {
@@ -731,9 +732,259 @@
             .portfolio-metrics {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .status-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .stage-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            
+            .theme-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 14px;
+            }
+            
+            .header {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+                margin-bottom: 10px;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+                margin-bottom: 15px;
+            }
+            
+            .panel {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .panel h2 {
+                font-size: 1.1em;
+                margin-bottom: 10px;
+            }
+            
+            .panel h3 {
+                font-size: 1em;
+                margin-bottom: 8px;
+            }
+            
+            /* Mobile Portfolio Table */
+            .portfolio-table {
+                font-size: 0.75em;
+            }
+            
+            .portfolio-table th,
+            .portfolio-table td {
+                padding: 6px 4px;
+            }
+            
+            /* Hide less important columns on mobile */
+            .portfolio-table th:nth-child(3),
+            .portfolio-table td:nth-child(3),
+            .portfolio-table th:nth-child(7),
+            .portfolio-table td:nth-child(7),
+            .portfolio-table th:nth-child(8),
+            .portfolio-table td:nth-child(8) {
+                display: none;
+            }
+            
+            /* Mobile Portfolio Metrics */
+            .portfolio-metrics {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            
+            .metric-card {
+                padding: 12px;
+            }
+            
+            .metric-label {
+                font-size: 0.7em;
+            }
+            
+            .metric-value {
+                font-size: 1.2em;
+            }
+            
+            /* Mobile Status Grid */
+            .status-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 6px;
+            }
+            
+            .status-item {
+                padding: 8px;
+            }
+            
+            .status-label {
+                font-size: 0.7em;
+            }
+            
+            .status-value {
+                font-size: 1em;
+            }
+            
+            /* Mobile Claude Chat */
+            .claude-chat {
+                max-height: 200px;
+                padding: 10px;
+                font-size: 0.9em;
+            }
+            
+            .message {
+                padding: 8px;
+                margin-bottom: 8px;
+            }
+            
+            .claude-input input {
+                padding: 12px;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            
+            .claude-input button {
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+            
+            /* Mobile Buttons */
+            .btn {
+                padding: 10px 16px;
+                font-size: 14px;
+                margin: 2px;
+                min-height: 44px; /* iOS touch target */
+            }
+            
+            .trade-buttons {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .trade-btn {
+                padding: 12px;
+                font-size: 14px;
+                min-height: 48px;
+            }
+            
+            /* Mobile Input Grid */
+            .position-input-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            input, select {
+                padding: 12px;
+                font-size: 16px; /* Prevents zoom on iOS */
+                border-radius: 8px;
+                min-height: 44px;
+            }
+            
+            /* Mobile Emotion Buttons */
+            .emotion-buttons {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .emotion-btn {
+                padding: 10px;
+                font-size: 0.85em;
+                min-height: 44px;
+            }
+            
+            /* Mobile Stage Grid */
+            .stage-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 6px;
+            }
+            
+            .stage-card {
+                padding: 8px;
+                font-size: 0.8em;
+            }
+            
+            /* Mobile Stock List */
+            .stock-item {
+                padding: 10px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .stock-action {
+                align-self: stretch;
+                text-align: center;
+                padding: 8px;
+            }
+            
+            /* Mobile Theme Grid */
+            .theme-card {
+                padding: 12px;
+                font-size: 0.9em;
+            }
+            
+            /* Mobile Alert Boxes */
+            .alert {
+                padding: 10px;
+                font-size: 0.85em;
+                margin-bottom: 10px;
+            }
+            
+            /* Mobile Progress Bars */
+            .progress-bar {
+                height: 20px;
+            }
+            
+            .progress-text {
+                font-size: 0.6em;
+            }
+            
+            /* Mobile Risk Section */
+            .risk-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+            
+            .risk-label,
+            .risk-value {
+                font-size: 0.8em;
+            }
+        }
+
+        /* Ultra-small screens (iPhone SE, etc.) */
+        @media (max-width: 480px) {
+            body {
+                padding: 8px;
+                font-size: 13px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .subtitle {
+                font-size: 0.9em;
+            }
+            
+            .panel {
+                padding: 12px;
+            }
+            
             .portfolio-metrics {
                 grid-template-columns: 1fr;
             }
@@ -741,6 +992,106 @@
             .status-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .stage-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .emotion-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Hide portfolio table on very small screens, show cards instead */
+            .portfolio-table {
+                display: none;
+            }
+            
+            .mobile-portfolio-cards {
+                display: block;
+            }
+        }
+
+        /* Touch-friendly enhancements */
+        @media (hover: none) and (pointer: coarse) {
+            .btn:hover,
+            .trade-btn:hover,
+            .emotion-btn:hover,
+            .stage-card:hover {
+                transform: none;
+            }
+            
+            .btn:active,
+            .trade-btn:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+            
+            /* Larger touch targets */
+            .claude-input button {
+                min-width: 60px;
+                min-height: 44px;
+            }
+            
+            .live-indicator {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        /* Mobile portfolio cards (alternative to table) */
+        .mobile-portfolio-cards {
+            display: none;
+        }
+        
+        .mobile-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+        
+        .mobile-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .mobile-ticker {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .mobile-pl {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .mobile-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .mobile-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .mobile-btn {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.8em;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -906,6 +1257,143 @@
                             <td style="text-align: right;" class="live-price positive">$890.25</td>
                             <td style="text-align: right;" class="positive">+$369</td>
                             <td style="text-align: right;" class="positive">+1.7%</td>
+                            <td style="text-align: right;">$815.00</td>
+                            <td style="text-align: right;" class="cushion-good">9.2%</td>
+                            <td style="text-align: center;">
+                                <button class="btn btn-warning" onclick="addToPosition('NVDA')" style="width: auto; padding: 5px 10px; font-size: 0.8em;">Add</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ticker">TSLA</td>
+                            <td style="text-align: right;">75</td>
+                            <td style="text-align: right;">$245.80</td>
+                            <td style="text-align: right;" class="live-price positive">$268.45</td>
+                            <td style="text-align: right;" class="positive">+$1,699</td>
+                            <td style="text-align: right;" class="positive">+9.2%</td>
+                            <td style="text-align: right;">$228.00</td>
+                            <td style="text-align: right;" class="cushion-good">17.7%</td>
+                            <td style="text-align: center;">
+                                <button class="btn btn-success" onclick="partialSell('TSLA')" style="width: auto; padding: 5px 10px; font-size: 0.8em;">Take Profit</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mobile Portfolio Cards (shown on small screens) -->
+            <div class="mobile-portfolio-cards">
+                <div class="mobile-card">
+                    <div class="mobile-card-header">
+                        <span class="mobile-ticker">AMD</span>
+                        <span class="mobile-pl positive">+$1,789 (+4.1%)</span>
+                    </div>
+                    <div class="mobile-details">
+                        <div><strong>320</strong> shares</div>
+                        <div>Live: <strong>$143.59</strong></div>
+                        <div>Avg: $138.00</div>
+                        <div>Cushion: <span class="cushion-good">10.6%</span></div>
+                    </div>
+                    <div class="mobile-actions">
+                        <button class="mobile-btn btn-warning" onclick="addToPosition('AMD')">Add More</button>
+                    </div>
+                </div>
+
+                <div class="mobile-card">
+                    <div class="mobile-card-header">
+                        <span class="mobile-ticker">GEV</span>
+                        <span class="mobile-pl positive">+$891 (+2.2%)</span>
+                    </div>
+                    <div class="mobile-details">
+                        <div><strong>80</strong> shares</div>
+                        <div>Live: <strong>$520.75</strong></div>
+                        <div>Avg: $509.61</div>
+                        <div>Cushion: <span class="cushion-good">7.6%</span></div>
+                    </div>
+                    <div class="mobile-actions">
+                        <button class="mobile-btn btn-warning" onclick="addToPosition('GEV')">Add More</button>
+                    </div>
+                </div>
+
+                <div class="mobile-card">
+                    <div class="mobile-card-header">
+                        <span class="mobile-ticker">RBRK</span>
+                        <span class="mobile-pl negative">-$516 (-2.4%)</span>
+                    </div>
+                    <div class="mobile-details">
+                        <div><strong>240</strong> shares</div>
+                        <div>Live: <strong>$87.89</strong></div>
+                        <div>Avg: $90.04</div>
+                        <div>Cushion: <span class="cushion-danger">2.8%</span></div>
+                    </div>
+                    <div class="mobile-actions">
+                        <button class="mobile-btn btn-danger" onclick="autoSellPosition('RBRK')">⚠️ Sell</button>
+                    </div>
+                </div>
+
+                <div class="mobile-card">
+                    <div class="mobile-card-header">
+                        <span class="mobile-ticker">CRDO</span>
+                        <span class="mobile-pl positive">+$2,078 (+17.5%)</span>
+                    </div>
+                    <div class="mobile-details">
+                        <div><strong>150</strong> shares</div>
+                        <div>Live: <strong>$93.00</strong></div>
+                        <div>Avg: $79.15</div>
+                        <div>Cushion: <span class="cushion-good">17.5%</span></div>
+                    </div>
+                    <div class="mobile-actions">
+                        <button class="mobile-btn btn-success" onclick="partialSell('CRDO')">Take Profit</button>
+                    </div>
+                </div>
+
+                <div class="mobile-card">
+                    <div class="mobile-card-header">
+                        <span class="mobile-ticker">RCL</span>
+                        <span class="mobile-pl positive">+$1,448 (+13.3%)</span>
+                    </div>
+                    <div class="mobile-details">
+                        <div><strong>40</strong> shares</div>
+                        <div>Live: <strong>$309.14</strong></div>
+                        <div>Avg: $272.94</div>
+                        <div>Cushion: <span class="cushion-good">18.9%</span></div>
+                    </div>
+                    <div class="mobile-actions">
+                        <button class="mobile-btn btn-success" onclick="addToPosition('RCL')">Add More</button>
+                    </div>
+                </div>
+
+                <div class="mobile-card">
+                    <div class="mobile-card-header">
+                        <span class="mobile-ticker">NVDA</span>
+                        <span class="mobile-pl positive">+$369 (+1.7%)</span>
+                    </div>
+                    <div class="mobile-details">
+                        <div><strong>25</strong> shares</div>
+                        <div>Live: <strong>$890.25</strong></div>
+                        <div>Avg: $875.50</div>
+                        <div>Cushion: <span class="cushion-good">9.2%</span></div>
+                    </div>
+                    <div class="mobile-actions">
+                        <button class="mobile-btn btn-warning" onclick="addToPosition('NVDA')">Add More</button>
+                    </div>
+                </div>
+
+                <div class="mobile-card">
+                    <div class="mobile-card-header">
+                        <span class="mobile-ticker">TSLA</span>
+                        <span class="mobile-pl positive">+$1,699 (+9.2%)</span>
+                    </div>
+                    <div class="mobile-details">
+                        <div><strong>75</strong> shares</div>
+                        <div>Live: <strong>$268.45</strong></div>
+                        <div>Avg: $245.80</div>
+                        <div>Cushion: <span class="cushion-good">17.7%</span></div>
+                    </div>
+                    <div class="mobile-actions">
+                        <button class="mobile-btn btn-success" onclick="partialSell('TSLA')">Take Profit</button>
+                    </div>
+                </div>
+            </div>            <td style="text-align: right;" class="positive">+1.7%</td>
                             <td style="text-align: right;">$815.00</td>
                             <td style="text-align: right;" class="cushion-good">9.2%</td>
                             <td style="text-align: center;">
@@ -1432,7 +1920,7 @@
             `;
         }
 
-        // Claude AI with complete automation context
+        // Enhanced Claude AI with full interactive capabilities
         async function sendToClaude() {
             const input = document.getElementById('claudeInput');
             const message = input.value.trim();
@@ -1442,7 +1930,15 @@
             addMessageToChat('user', message);
             input.value = '';
             
-            const typingIndicator = addMessageToChat('claude', '<div style="display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid white; border-radius: 50%; animation: spin 1s linear infinite;"></div> Analyzing automated system...');
+            const typingIndicator = addMessageToChat('claude', '<div style="display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid white; border-radius: 50%; animation: spin 1s linear infinite;"></div> Processing your request...');
+            
+            // Check for portfolio commands first
+            const portfolioAction = parsePortfolioCommand(message);
+            if (portfolioAction) {
+                removeMessage(typingIndicator);
+                executePortfolioAction(portfolioAction);
+                return;
+            }
             
             try {
                 const response = await askClaudeWithAutomationContext(message);
@@ -1450,9 +1946,123 @@
                 addMessageToChat('claude', response);
             } catch (error) {
                 removeMessage(typingIndicator);
-                addMessageToChat('claude', 'Your automated system is running perfectly. All portfolio data is tracked automatically with zero manual work required. How can I help optimize your strategy?');
+                addMessageToChat('claude', 'I can help you manage your portfolio! Try commands like:<br>• "Add AAPL 100 shares at $225"<br>• "Remove RBRK position"<br>• "Analyze my portfolio risk"<br>• "What should I buy next?"<br>• "Update stop losses"');
             }
         }
+
+        // Portfolio command parser for interactive features
+        function parsePortfolioCommand(message) {
+            const msg = message.toLowerCase().trim();
+            
+            // Add position commands
+            const addMatch = msg.match(/add\s+([a-z]{1,5})\s*(\d+)?\s*shares?\s*(?:at|@)?\s*\$?(\d+(?:\.\d{2})?)?/i);
+            if (addMatch) {
+                return {
+                    action: 'add',
+                    ticker: addMatch[1].toUpperCase(),
+                    shares: parseInt(addMatch[2]) || 100,
+                    price: parseFloat(addMatch[3]) || null
+                };
+            }
+            
+            // Remove position commands
+            const removeMatch = msg.match(/(?:remove|delete|sell)\s+([a-z]{1,5})/i);
+            if (removeMatch) {
+                return {
+                    action: 'remove',
+                    ticker: removeMatch[1].toUpperCase()
+                };
+            }
+            
+            // Quick add with just ticker
+            const quickAddMatch = msg.match(/^([a-z]{1,5})$/i);
+            if (quickAddMatch && quickAddMatch[1].length <= 5) {
+                return {
+                    action: 'quickAdd',
+                    ticker: quickAddMatch[1].toUpperCase()
+                };
+            }
+            
+            // Portfolio analysis commands
+            if (msg.includes('analyze') || msg.includes('risk') || msg.includes('portfolio')) {
+                return { action: 'analyze' };
+            }
+            
+            // Update stops
+            if (msg.includes('stop') && (msg.includes('update') || msg.includes('optimize'))) {
+                return { action: 'updateStops' };
+            }
+            
+            // Rebalance
+            if (msg.includes('rebalance') || msg.includes('balance')) {
+                return { action: 'rebalance' };
+            }
+            
+            return null;
+        }
+
+        // Execute portfolio actions
+        function executePortfolioAction(action) {
+            switch (action.action) {
+                case 'add':
+                    if (action.price) {
+                        addNewPosition(action.ticker, action.shares, action.price);
+                    } else {
+                        addMessageToChat('claude', `🎯 Adding ${action.ticker} position! What's your entry price for ${action.shares} shares?`);
+                        // Auto-suggest current market price
+                        setTimeout(() => {
+                            const suggestedPrice = generateMarketPrice(action.ticker);
+                            addMessageToChat('claude', `💡 Suggested entry price for ${action.ticker}: ${suggestedPrice.toFixed(2)}<br><br><button onclick="addNewPosition('${action.ticker}', ${action.shares}, ${suggestedPrice})" class="btn btn-success" style="width: auto; padding: 8px 16px; margin: 5px;">Add at ${suggestedPrice.toFixed(2)}</button>`);
+                        }, 1000);
+                    }
+                    break;
+                    
+                case 'quickAdd':
+                    const suggestedPrice = generateMarketPrice(action.ticker);
+                    const suggestedShares = calculateOptimalShares(suggestedPrice);
+                    addMessageToChat('claude', `🚀 Quick Add ${action.ticker}:<br><br>Suggested Position:<br>• Shares: ${suggestedShares}<br>• Price: ${suggestedPrice.toFixed(2)}<br>• Value: ${(suggestedShares * suggestedPrice).toLocaleString()}<br><br><button onclick="addNewPosition('${action.ticker}', ${suggestedShares}, ${suggestedPrice})" class="btn btn-success" style="width: auto; padding: 8px 16px; margin: 5px;">Add Position</button>`);
+                    break;
+                    
+                case 'remove':
+                    removePosition(action.ticker);
+                    break;
+                    
+                case 'analyze':
+                    performPortfolioAnalysis();
+                    break;
+                    
+                case 'updateStops':
+                    updateAllStopLosses();
+                    break;
+                    
+                case 'rebalance':
+                    suggestRebalancing();
+                    break;
+            }
+        }
+
+        // Add new position with AI assistance
+        function addNewPosition(ticker, shares, price) {
+            const newPosition = {
+                ticker: ticker,
+                shares: shares,
+                avgCost: price,
+                lastPrice: price * (0.98 + Math.random() * 0.04), // Simulate slight price movement
+                stopLoss: price * 0.93, // 7% stop loss
+                type: 'core'
+            };
+            
+            // Check if position already exists
+            const existingIndex = portfolioData.positions.findIndex(p => p.ticker === ticker);
+            if (existingIndex !== -1) {
+                // Update existing position
+                const existing = portfolioData.positions[existingIndex];
+                const totalShares = existing.shares + shares;
+                const totalCost = (existing.shares * existing.avgCost) + (shares * price);
+                existing.avgCost = totalCost / totalShares;
+                existing.shares = totalShares;
+                
+                addMessageToChat('claude', `✅ Updated ${ticker} position!<br>• Added ${shares} shares at ${price.toFixed(2)}<br>• New total: ${totalShares} shares<br>•
 
         async function askClaudeWithAutomationContext(question) {
             const automationContext = `
@@ -1732,27 +2342,208 @@
             }, 8000); // Update every 8 seconds for demo
         }
 
-        // Initialize the automated system
+        // Enhanced mobile-friendly initialization
         function initializeAutomatedSystem() {
-            addAutomationLog(`🚀 SYSTEM STARTUP: Automated trading dashboard initialized`);
+            addAutomationLog(`🚀 SYSTEM STARTUP: Enhanced AI-powered trading dashboard initialized`);
             addAutomationLog(`✅ BACKEND: Google Sheets integration active (invisible to user)`);
             addAutomationLog(`✅ SYNC: Cross-device synchronization enabled`);
-            addAutomationLog(`✅ AI: Claude integration with full automation context`);
-            addAutomationLog(`🎯 STATUS: Zero manual work required - system fully automated`);
+            addAutomationLog(`🤖 AI: Enhanced Claude integration with portfolio management`);
+            addAutomationLog(`📱 MOBILE: Touch-optimized interface active`);
+            addAutomationLog(`🎯 STATUS: Fully interactive AI-powered system active`);
+            
+            // Detect mobile device
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            if (isMobile) {
+                document.body.classList.add('mobile-device');
+                addAutomationLog(`📱 MOBILE: Mobile device detected - optimizations applied`);
+            }
             
             // Start automated updates
             startAutomatedUpdates();
             
-            // Add CSS animation
+            // Add quick command buttons (mobile-optimized)
+            setTimeout(addQuickCommandButtons, 1000);
+            
+            // Add mobile-friendly welcome message
+            setTimeout(() => {
+                const welcomeMessage = isMobile ? 
+                    `🤖 <strong>AI Assistant Ready!</strong><br><br>📱 <strong>Mobile Commands:</strong><br>• Tap 🎤 for voice control<br>• "Add AAPL" (quick add)<br>• "Analyze portfolio"<br>• "Update stops"<br><br>💡 <strong>Touch Features:</strong><br>✅ Voice commands<br>✅ One-tap trading<br>✅ Swipe-friendly interface<br>✅ Auto-sync across devices<br><br>Try: "Add Apple 100 shares" 📈` :
+                    `🤖 <strong>AI Portfolio Assistant Ready!</strong><br><br>🎯 <strong>Interactive Commands:</strong><br>• "Add AAPL 100 shares at $225"<br>• "Remove TSLA position"<br>• "Analyze my portfolio"<br>• "Update stop losses"<br>• "What should I buy next?"<br>• "AAPL" (quick add)<br><br>💡 <strong>Smart Features:</strong><br>✅ Voice commands (click 🎤)<br>✅ Real-time portfolio updates<br>✅ AI risk analysis<br>✅ Automatic calculations<br>✅ Cross-device sync<br><br>Just type naturally - I understand your trading language! 📈`;
+                
+                addMessageToChat('claude', welcomeMessage);
+            }, 2000);
+            
+            // Add CSS animation and mobile-specific styles
             const style = document.createElement('style');
             style.textContent = `
                 @keyframes spin {
                     0% { transform: rotate(0deg); }
                     100% { transform: rotate(360deg); }
                 }
+                
+                .ai-highlight {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 2px 6px;
+                    border-radius: 4px;
+                    font-weight: bold;
+                }
+                
+                .voice-pulse {
+                    animation: pulse 1.5s infinite;
+                }
+                
+                @keyframes pulse {
+                    0% { opacity: 1; }
+                    50% { opacity: 0.5; }
+                    100% { opacity: 1; }
+                }
+                
+                /* Mobile-specific enhancements */
+                .mobile-device .btn {
+                    user-select: none;
+                    -webkit-tap-highlight-color: transparent;
+                }
+                
+                .mobile-device input {
+                    -webkit-appearance: none;
+                    border-radius: 8px;
+                }
+                
+                /* Prevent zoom on input focus for iOS */
+                @media screen and (-webkit-min-device-pixel-ratio:0) {
+                    select, textarea, input[type="text"], input[type="password"], 
+                    input[type="datetime"], input[type="datetime-local"], 
+                    input[type="date"], input[type="month"], input[type="time"], 
+                    input[type="week"], input[type="number"], input[type="email"], 
+                    input[type="url"] {
+                        font-size: 16px !important;
+                    }
+                }
+                
+                /* Smooth scrolling for mobile */
+                .mobile-device {
+                    -webkit-overflow-scrolling: touch;
+                }
+                
+                .mobile-device .claude-chat {
+                    -webkit-overflow-scrolling: touch;
+                }
             `;
             document.head.appendChild(style);
+            
+            // Add viewport meta tag if not present (for proper mobile scaling)
+            if (!document.querySelector('meta[name="viewport"]')) {
+                const viewport = document.createElement('meta');
+                viewport.name = 'viewport';
+                viewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+                document.head.appendChild(viewport);
+            }
         }
+
+        // Mobile-optimized quick command buttons
+        function addQuickCommandButtons() {
+            const chatDiv = document.getElementById('claudeChat');
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            const quickCommands = document.createElement('div');
+            quickCommands.innerHTML = isMobile ? `
+                <div style="margin: 10px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                    <button onclick="quickCommand('analyze portfolio')" class="btn" style="padding: 10px; font-size: 0.8em; min-height: 44px;">📊 Analyze</button>
+                    <button onclick="quickCommand('update stops')" class="btn" style="padding: 10px; font-size: 0.8em; min-height: 44px;">🛡️ Stops</button>
+                    <button onclick="quickCommand('rebalance')" class="btn" style="padding: 10px; font-size: 0.8em; min-height: 44px;">⚖️ Balance</button>
+                    <button onclick="startVoiceCommand()" class="btn" style="padding: 10px; font-size: 0.8em; min-height: 44px;">🎤 Voice</button>
+                </div>
+            ` : `
+                <div style="margin: 10px 0; display: flex; flex-wrap: wrap; gap: 5px;">
+                    <button onclick="quickCommand('analyze portfolio')" class="btn" style="width: auto; padding: 5px 10px; font-size: 0.8em;">📊 Analyze</button>
+                    <button onclick="quickCommand('update stops')" class="btn" style="width: auto; padding: 5px 10px; font-size: 0.8em;">🛡️ Update Stops</button>
+                    <button onclick="quickCommand('rebalance')" class="btn" style="width: auto; padding: 5px 10px; font-size: 0.8em;">⚖️ Rebalance</button>
+                    <button onclick="startVoiceCommand()" class="btn" style="width: auto; padding: 5px 10px; font-size: 0.8em;">🎤 Voice</button>
+                </div>
+            `;
+            chatDiv.appendChild(quickCommands);
+        }
+
+        // Enhanced mobile voice command with better feedback
+        function startVoiceCommand() {
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                const recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.lang = 'en-US';
+                
+                recognition.onstart = function() {
+                    addMessageToChat('claude', '🎤 <span class="voice-pulse">Listening...</span> Say your command!<br><small>Try: "Add Apple", "Analyze portfolio", "Update stops"</small>');
+                    
+                    // Add visual feedback for mobile
+                    const voiceButtons = document.querySelectorAll('button');
+                    voiceButtons.forEach(btn => {
+                        if (btn.textContent.includes('🎤')) {
+                            btn.classList.add('voice-pulse');
+                        }
+                    });
+                };
+                
+                recognition.onresult = function(event) {
+                    const command = event.results[0][0].transcript;
+                    document.getElementById('claudeInput').value = command;
+                    addMessageToChat('user', `🎤 "${command}"`);
+                    sendToClaude();
+                    
+                    // Remove visual feedback
+                    document.querySelectorAll('.voice-pulse').forEach(el => {
+                        el.classList.remove('voice-pulse');
+                    });
+                };
+                
+                recognition.onerror = function(event) {
+                    addMessageToChat('claude', '❌ Voice recognition failed. Please try again or type your command.<br><small>Make sure microphone permission is enabled.</small>');
+                    
+                    // Remove visual feedback
+                    document.querySelectorAll('.voice-pulse').forEach(el => {
+                        el.classList.remove('voice-pulse');
+                    });
+                };
+                
+                recognition.onend = function() {
+                    // Remove visual feedback
+                    document.querySelectorAll('.voice-pulse').forEach(el => {
+                        el.classList.remove('voice-pulse');
+                    });
+                };
+                
+                recognition.start();
+            } else {
+                addMessageToChat('claude', '❌ Voice commands not supported in this browser. Please type your command.<br><small>Voice works best in Chrome/Safari on mobile devices.</small>');
+            }
+        }
+
+        // Mobile-optimized touch events
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add touch event handlers for better mobile experience
+            const buttons = document.querySelectorAll('.btn, .trade-btn, .emotion-btn');
+            buttons.forEach(button => {
+                button.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                }, { passive: true });
+                
+                button.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                }, { passive: true });
+            });
+            
+            // Prevent double-tap zoom on buttons
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function (event) {
+                const now = (new Date()).getTime();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+        });
 
         // Start the automated system
         initializeAutomatedSystem();

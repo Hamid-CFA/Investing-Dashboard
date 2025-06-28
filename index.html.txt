@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automated Trading Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Your HTML content remains here -->
+  <!-- Keep all layout, structure, and element IDs -->
+  <!-- Do NOT include any <style> or <script> blocks here -->
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

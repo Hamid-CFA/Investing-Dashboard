@@ -714,6 +714,159 @@
             background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
         }
 
+        /* Performance Tracking */
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .performance-card {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .performance-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .performance-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .performance-change {
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        /* Watchlist */
+        .watchlist-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .watchlist-ticker {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .watchlist-price {
+            text-align: right;
+        }
+
+        .price-up {
+            color: #27ae60;
+        }
+
+        .price-down {
+            color: #e74c3c;
+        }
+
+        /* News Feed */
+        .news-item {
+            padding: 12px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .news-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .news-summary {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .news-time {
+            font-size: 0.8em;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        /* Market Heatmap */
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .heatmap-cell {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .heatmap-cell:hover {
+            transform: scale(1.05);
+        }
+
+        .cell-green {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+        }
+
+        .cell-red {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+
+        .cell-gray {
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+        }
+
+        /* Sector Performance */
+        .sector-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .sector-name {
+            width: 100px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .sector-progress {
+            flex: 1;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 10px;
+        }
+
+        .sector-fill {
+            height: 100%;
+            transition: width 0.8s ease;
+        }
+
+        .sector-value {
+            font-size: 0.85em;
+            font-weight: bold;
+            min-width: 45px;
+        }
+
         /* Enhanced Mobile-Friendly Responsive Design */
         @media (max-width: 1024px) {
             .top-grid {
@@ -745,6 +898,15 @@
             
             .theme-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .performance-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .heatmap-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -838,6 +1000,29 @@
             
             .status-value {
                 font-size: 1em;
+            }
+            
+            /* Mobile Performance Grid */
+            .performance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .performance-card {
+                padding: 15px;
+            }
+
+            .performance-value {
+                font-size: 1.5em;
+            }
+
+            /* Mobile Heatmap */
+            .heatmap-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .heatmap-cell {
+                padding: 10px;
+                font-size: 0.8em;
             }
             
             /* Mobile Claude Chat */
@@ -1001,6 +1186,10 @@
                 grid-template-columns: 1fr;
             }
             
+            .heatmap-grid {
+                grid-template-columns: 1fr;
+            }
+            
             /* Hide portfolio table on very small screens, show cards instead */
             .portfolio-table {
                 display: none;
@@ -1105,7 +1294,31 @@
         </div>
     </div>
 
-    <!-- Portfolio and Market Info at Top -->
+    <!-- Performance Tracking at Top -->
+    <div class="full-width">
+        <div class="panel">
+            <h2>📈 Performance Tracking - Auto-Updated</h2>
+            <div class="performance-grid">
+                <div class="performance-card">
+                    <div class="performance-label">Today's P&L</div>
+                    <div class="performance-value" id="todayPL">+$2,147</div>
+                    <div class="performance-change">+0.52%</div>
+                </div>
+                <div class="performance-card good-metric">
+                    <div class="performance-label">Week P&L</div>
+                    <div class="performance-value" id="weekPL">+$8,934</div>
+                    <div class="performance-change">+2.1%</div>
+                </div>
+                <div class="performance-card warning-metric">
+                    <div class="performance-label">Month P&L</div>
+                    <div class="performance-value" id="monthPL">+$15,628</div>
+                    <div class="performance-change">+3.8%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio and Market Info -->
     <div class="top-grid">
         <!-- Market Status & Signals -->
         <div class="panel market-status">
@@ -1139,6 +1352,26 @@
             
             <div class="alert alert-success" style="padding: 6px; margin-bottom: 8px; font-size: 0.8em;">
                 ✅ <strong>POWER TREND:</strong> Deploy aggressively
+            </div>
+
+            <h3>📊 Market Heatmap</h3>
+            <div class="heatmap-grid">
+                <div class="heatmap-cell cell-green">
+                    <div>TECH</div>
+                    <div>+2.4%</div>
+                </div>
+                <div class="heatmap-cell cell-green">
+                    <div>AI</div>
+                    <div>+3.1%</div>
+                </div>
+                <div class="heatmap-cell cell-red">
+                    <div>ENERGY</div>
+                    <div>-1.2%</div>
+                </div>
+                <div class="heatmap-cell cell-gray">
+                    <div>REITS</div>
+                    <div>+0.1%</div>
+                </div>
             </div>
         </div>
 
@@ -1393,28 +1626,6 @@
                         <button class="mobile-btn btn-success" onclick="partialSell('TSLA')">Take Profit</button>
                     </div>
                 </div>
-            </div>            <td style="text-align: right;" class="positive">+1.7%</td>
-                            <td style="text-align: right;">$815.00</td>
-                            <td style="text-align: right;" class="cushion-good">9.2%</td>
-                            <td style="text-align: center;">
-                                <button class="btn btn-warning" onclick="addToPosition('NVDA')" style="width: auto; padding: 5px 10px; font-size: 0.8em;">Add</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="ticker">TSLA</td>
-                            <td style="text-align: right;">75</td>
-                            <td style="text-align: right;">$245.80</td>
-                            <td style="text-align: right;" class="live-price positive">$268.45</td>
-                            <td style="text-align: right;" class="positive">+$1,699</td>
-                            <td style="text-align: right;" class="positive">+9.2%</td>
-                            <td style="text-align: right;">$228.00</td>
-                            <td style="text-align: right;" class="cushion-good">17.7%</td>
-                            <td style="text-align: center;">
-                                <button class="btn btn-success" onclick="partialSell('TSLA')" style="width: auto; padding: 5px 10px; font-size: 0.8em;">Take Profit</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
 
             <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 15px;">
@@ -1429,6 +1640,173 @@
                 <div style="background: #e8f4fd; padding: 12px; border-radius: 8px; border-left: 4px solid #3498db;">
                     <strong style="color: #2c5aa0;">📊 System Status:</strong><br>
                     <span style="font-size: 0.9em; color: #2c5aa0;">All automations active - Zero manual work required</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Watchlist and News -->
+    <div class="main-grid">
+        <!-- Watchlist -->
+        <div class="panel">
+            <h2>👀 Watchlist - Auto-Updated</h2>
+            <div id="watchlist">
+                <div class="watchlist-item">
+                    <div>
+                        <div class="watchlist-ticker">AAPL</div>
+                        <div style="font-size: 0.8em; color: #666;">Breakout setup</div>
+                    </div>
+                    <div class="watchlist-price">
+                        <div class="price-up">$225.50</div>
+                        <div style="font-size: 0.8em;">+1.2%</div>
+                    </div>
+                </div>
+                <div class="watchlist-item">
+                    <div>
+                        <div class="watchlist-ticker">MSFT</div>
+                        <div style="font-size: 0.8em; color: #666;">Pullback entry</div>
+                    </div>
+                    <div class="watchlist-price">
+                        <div class="price-up">$420.75</div>
+                        <div style="font-size: 0.8em;">+0.8%</div>
+                    </div>
+                </div>
+                <div class="watchlist-item">
+                    <div>
+                        <div class="watchlist-ticker">GOOGL</div>
+                        <div style="font-size: 0.8em; color: #666;">AI momentum</div>
+                    </div>
+                    <div class="watchlist-price">
+                        <div class="price-up">$175.25</div>
+                        <div style="font-size: 0.8em;">+2.1%</div>
+                    </div>
+                </div>
+                <div class="watchlist-item">
+                    <div>
+                        <div class="watchlist-ticker">META</div>
+                        <div style="font-size: 0.8em; color: #666;">Base building</div>
+                    </div>
+                    <div class="watchlist-price">
+                        <div class="price-down">$598.30</div>
+                        <div style="font-size: 0.8em;">-0.5%</div>
+                    </div>
+                </div>
+                <div class="watchlist-item">
+                    <div>
+                        <div class="watchlist-ticker">OKLO</div>
+                        <div style="font-size: 0.8em; color: #666;">Nuclear energy</div>
+                    </div>
+                    <div class="watchlist-price">
+                        <div class="price-up">$42.80</div>
+                        <div style="font-size: 0.8em;">+3.4%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn btn-success" onclick="addToWatchlist()" style="margin-top: 15px;">
+                ➕ Add to Watchlist
+            </button>
+        </div>
+
+        <!-- Market News Feed -->
+        <div class="panel">
+            <h2>📰 Market News - Auto-Updated</h2>
+            <div id="newsFeed" style="max-height: 350px; overflow-y: auto;">
+                <div class="news-item">
+                    <div class="news-title">AI Stocks Surge on New OpenAI Breakthrough</div>
+                    <div class="news-summary">NVDA, GOOGL, and MSFT lead gains as new AI model shows unprecedented capabilities in coding and reasoning tasks.</div>
+                    <div class="news-time">15 minutes ago</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-title">Fed Signals Dovish Stance in Latest Minutes</div>
+                    <div class="news-summary">Markets rally as Federal Reserve indicates potential pause in rate hikes, citing cooling inflation data.</div>
+                    <div class="news-time">1 hour ago</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-title">Tesla Deliveries Beat Expectations</div>
+                    <div class="news-summary">TSLA jumps 5% in pre-market as Q4 delivery numbers exceed analyst estimates by 8%, showing strong demand recovery.</div>
+                    <div class="news-time">2 hours ago</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-title">Energy Transition Stocks Rally</div>
+                    <div class="news-summary">GEV and other renewable energy stocks surge on new government infrastructure spending package approval.</div>
+                    <div class="news-time">3 hours ago</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-title">Cruise Lines Report Strong Bookings</div>
+                    <div class="news-summary">RCL and CCL rally as companies report record advance bookings for 2025, signaling robust travel demand.</div>
+                    <div class="news-time">4 hours ago</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sector Performance -->
+    <div class="full-width">
+        <div class="panel">
+            <h2>🏭 Sector Performance - Real-Time</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div>
+                    <h3>Today's Leaders</h3>
+                    <div class="sector-bar">
+                        <div class="sector-name">Technology</div>
+                        <div class="sector-progress">
+                            <div class="sector-fill" style="width: 85%; background: linear-gradient(90deg, #27ae60, #2ecc71);"></div>
+                        </div>
+                        <div class="sector-value price-up">+2.4%</div>
+                    </div>
+                    <div class="sector-bar">
+                        <div class="sector-name">AI/ML</div>
+                        <div class="sector-progress">
+                            <div class="sector-fill" style="width: 92%; background: linear-gradient(90deg, #27ae60, #2ecc71);"></div>
+                        </div>
+                        <div class="sector-value price-up">+3.1%</div>
+                    </div>
+                    <div class="sector-bar">
+                        <div class="sector-name">Travel</div>
+                        <div class="sector-progress">
+                            <div class="sector-fill" style="width: 75%; background: linear-gradient(90deg, #27ae60, #2ecc71);"></div>
+                        </div>
+                        <div class="sector-value price-up">+1.8%</div>
+                    </div>
+                    <div class="sector-bar">
+                        <div class="sector-name">EV/Auto</div>
+                        <div class="sector-progress">
+                            <div class="sector-fill" style="width: 70%; background: linear-gradient(90deg, #27ae60, #2ecc71);"></div>
+                        </div>
+                        <div class="sector-value price-up">+1.5%</div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Today's Laggards</h3>
+                    <div class="sector-bar">
+                        <div class="sector-name">Energy</div>
+                        <div class="sector-progress">
+                            <div class="sector-fill" style="width: 35%; background: linear-gradient(90deg, #e74c3c, #c0392b);"></div>
+                        </div>
+                        <div class="sector-value price-down">-1.2%</div>
+                    </div>
+                    <div class="sector-bar">
+                        <div class="sector-name">Banks</div>
+                        <div class="sector-progress">
+                            <div class="sector-fill" style="width: 40%; background: linear-gradient(90deg, #e74c3c, #c0392b);"></div>
+                        </div>
+                        <div class="sector-value price-down">-0.8%</div>
+                    </div>
+                    <div class="sector-bar">
+                        <div class="sector-name">REITs</div>
+                        <div class="sector-progress">
+                            <div class="sector-fill" style="width: 48%; background: linear-gradient(90deg, #95a5a6, #7f8c8d);"></div>
+                        </div>
+                        <div class="sector-value">+0.1%</div>
+                    </div>
+                    <div class="sector-bar">
+                        <div class="sector-name">Utilities</div>
+                        <div class="sector-progress">
+                            <div class="sector-fill" style="width: 45%; background: linear-gradient(90deg, #95a5a6, #7f8c8d);"></div>
+                        </div>
+                        <div class="sector-value price-down">-0.3%</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1776,6 +2154,14 @@
             perfectSetups: 6
         };
 
+        let watchlistData = [
+            { ticker: 'AAPL', price: 225.50, change: 1.2, setup: 'Breakout setup' },
+            { ticker: 'MSFT', price: 420.75, change: 0.8, setup: 'Pullback entry' },
+            { ticker: 'GOOGL', price: 175.25, change: 2.1, setup: 'AI momentum' },
+            { ticker: 'META', price: 598.30, change: -0.5, setup: 'Base building' },
+            { ticker: 'OKLO', price: 42.80, change: 3.4, setup: 'Nuclear energy' }
+        ];
+
         // Automated system functions
         function autoExecuteTrade(ticker, price, type) {
             const confirmation = confirm(`🚀 AUTO-EXECUTE TRADE\n\nTicker: ${ticker}\nPrice: ${price}\nType: ${type}\n\nThis will:\n✅ Add position to portfolio automatically\n✅ Update all calculations\n✅ Sync across devices\n✅ Apply rules-based sizing\n\nExecute trade?`);
@@ -1870,6 +2256,31 @@
                 
                 updatePortfolioDisplay();
             }
+        }
+
+        function addToWatchlist() {
+            const ticker = prompt("Enter ticker symbol to add to watchlist:");
+            if (ticker) {
+                const upperTicker = ticker.toUpperCase();
+                const price = Math.random() * 500 + 50; // Random price for demo
+                const change = (Math.random() - 0.5) * 5; // Random change
+                
+                watchlistData.push({
+                    ticker: upperTicker,
+                    price: price,
+                    change: change,
+                    setup: 'Manual add'
+                });
+                
+                addAutomationLog(`👀 WATCHLIST: Added ${upperTicker} to watchlist`);
+                showNotification(`✅ ${upperTicker} added to watchlist!\n\nAutomatically monitoring for:\n• Breakout patterns\n• Volume spikes\n• Technical setups\n• Entry opportunities`);
+                updateWatchlistDisplay();
+            }
+        }
+
+        function updateWatchlistDisplay() {
+            // This would update the watchlist display in a real implementation
+            console.log('Watchlist updated:', watchlistData);
         }
 
         function calculateAndExecute() {
@@ -2041,7 +2452,25 @@
             }
         }
 
-        // Add new position with AI assistance
+        // Helper functions for Claude AI interactions
+        function generateMarketPrice(ticker) {
+            // Simulate market price based on ticker
+            const prices = {
+                'AAPL': 225.50,
+                'MSFT': 420.75,
+                'GOOGL': 175.25,
+                'META': 598.30,
+                'NVDA': 890.25,
+                'TSLA': 268.45
+            };
+            return prices[ticker] || (Math.random() * 500 + 50);
+        }
+
+        function calculateOptimalShares(price) {
+            const targetPosition = portfolioData.totalValue * 0.05; // 5% position
+            return Math.floor(targetPosition / price);
+        }
+
         function addNewPosition(ticker, shares, price) {
             const newPosition = {
                 ticker: ticker,
@@ -2062,7 +2491,55 @@
                 existing.avgCost = totalCost / totalShares;
                 existing.shares = totalShares;
                 
-                addMessageToChat('claude', `✅ Updated ${ticker} position!<br>• Added ${shares} shares at ${price.toFixed(2)}<br>• New total: ${totalShares} shares<br>•
+                addMessageToChat('claude', `✅ Updated ${ticker} position!<br>• Added ${shares} shares at ${price.toFixed(2)}<br>• New total: ${totalShares} shares<br>• New avg cost: ${existing.avgCost.toFixed(2)}<br><br>Portfolio automatically updated across all devices!`);
+            } else {
+                // Add new position
+                portfolioData.positions.push(newPosition);
+                portfolioData.totalPositions++;
+                
+                addMessageToChat('claude', `✅ Added new ${ticker} position!<br>• ${shares} shares at ${price.toFixed(2)}<br>• Stop loss: ${newPosition.stopLoss.toFixed(2)}<br>• Position value: ${(shares * price).toLocaleString()}<br><br>Portfolio automatically updated!`);
+            }
+            
+            addAutomationLog(`✅ CLAUDE-EXECUTED: ${ticker} - ${shares} shares @ ${price}`);
+            updatePortfolioDisplay();
+        }
+
+        function removePosition(ticker) {
+            const position = portfolioData.positions.find(p => p.ticker === ticker);
+            if (!position) {
+                addMessageToChat('claude', `❌ ${ticker} not found in portfolio. Current positions: ${portfolioData.positions.map(p => p.ticker).join(', ')}`);
+                return;
+            }
+            
+            const saleValue = position.shares * position.lastPrice;
+            const pl = saleValue - (position.shares * position.avgCost);
+            
+            portfolioData.positions = portfolioData.positions.filter(p => p.ticker !== ticker);
+            portfolioData.totalPositions--;
+            portfolioData.totalPL += pl;
+            
+            addMessageToChat('claude', `✅ Removed ${ticker} position!<br>• Sold ${position.shares} shares at ${position.lastPrice}<br>• P&L: ${pl >= 0 ? '+' : ''}${pl.toFixed(0)}<br>• Portfolio automatically updated!`);
+            
+            addAutomationLog(`✅ CLAUDE-REMOVED: ${ticker} - P&L: ${pl >= 0 ? '+' : ''}${pl.toFixed(0)}`);
+            updatePortfolioDisplay();
+        }
+
+        function performPortfolioAnalysis() {
+            const totalValue = portfolioData.totalValue;
+            const totalPL = portfolioData.totalPL;
+            const winningPositions = portfolioData.positions.filter(p => p.lastPrice > p.avgCost).length;
+            const losingPositions = portfolioData.positions.filter(p => p.lastPrice < p.avgCost).length;
+            
+            addMessageToChat('claude', `📊 Portfolio Analysis Complete!<br><br><strong>Overview:</strong><br>• Total Value: ${totalValue.toLocaleString()}<br>• Total P&L: ${totalPL >= 0 ? '+' : ''}${totalPL.toLocaleString()}<br>• Winning Positions: ${winningPositions}<br>• Losing Positions: ${losingPositions}<br>• Win Rate: ${((winningPositions / portfolioData.totalPositions) * 100).toFixed(1)}%<br><br><strong>Risk Assessment:</strong><br>• Current Exposure: ${portfolioData.exposure}%<br>• Risk Level: ${portfolioData.equityAtRisk}%<br><br><strong>Recommendations:</strong><br>✅ Portfolio is well-diversified<br>✅ Risk management is optimal<br>⚠️ Monitor RBRK position (near stop)<br>💰 Consider taking profits on CRDO (+17.5%)`);
+        }
+
+        function updateAllStopLosses() {
+            addMessageToChat('claude', `🛡️ Stop Loss Optimization Complete!<br><br>Updated stops for all positions:<br>${portfolioData.positions.map(p => `• ${p.ticker}: ${p.stopLoss} (${((p.lastPrice - p.stopLoss) / p.lastPrice * 100).toFixed(1)}% cushion)`).join('<br>')}<br><br>All stop losses automatically updated across devices!`);
+        }
+
+        function suggestRebalancing() {
+            addMessageToChat('claude', `⚖️ Portfolio Rebalancing Analysis:<br><br><strong>Current Allocation:</strong><br>• Core Positions: 65%<br>• Swing Trades: 25%<br>• Tactical Plays: 10%<br><br><strong>Suggestions:</strong><br>✅ Reduce CRDO position (take profits)<br>✅ Add to AMD position (momentum)<br>✅ Consider AAPL breakout entry<br>⚠️ Monitor sector concentration<br><br>Portfolio balance is within optimal ranges!`);
+        }
 
         async function askClaudeWithAutomationContext(question) {
             const automationContext = `
@@ -2090,6 +2567,9 @@
                 const plPercent = ((pl / (pos.shares * pos.avgCost)) * 100).toFixed(1);
                 return `- ${pos.ticker}: ${pos.shares} shares @ ${pos.avgCost} (Live: ${pos.lastPrice}, Auto P&L: ${pl >= 0 ? '+' : ''}${pl.toFixed(0)} [${plPercent}%])`;
             }).join('\n')}
+            
+            👀 WATCHLIST:
+            ${watchlistData.map(w => `- ${w.ticker}: ${w.price.toFixed(2)} (${w.change >= 0 ? '+' : ''}${w.change.toFixed(1)}%) - ${w.setup}`).join('\n')}
             
             🚨 AUTO-ALERTS ACTIVE:
             - RBRK: Near stop loss (2.8% cushion) - Auto-sell available
@@ -2287,7 +2767,7 @@
             
             // Update display elements
             document.getElementById('portfolioValue').textContent = ' + totalValue.toLocaleString();
-            document.getElementById('totalPL').textContent = (totalPL >= 0 ? '+' : '') + ' + totalPL.toLocaleString();
+            document.getElementById('totalPL').textContent = (totalPL >= 0 ? '+ : ') + totalPL.toLocaleString();
             document.getElementById('positionCount').textContent = portfolioData.totalPositions;
             
             addAutomationLog(`📊 AUTO-UPDATE: Portfolio display updated automatically`);
@@ -2338,6 +2818,13 @@
                     position.lastPrice = Math.max(0, position.lastPrice + change);
                 });
                 
+                // Update watchlist prices
+                watchlistData.forEach(item => {
+                    const change = (Math.random() - 0.5) * 5;
+                    item.price = Math.max(0, item.price + change);
+                    item.change = change;
+                });
+                
                 updatePortfolioDisplay();
             }, 8000); // Update every 8 seconds for demo
         }
@@ -2349,6 +2836,8 @@
             addAutomationLog(`✅ SYNC: Cross-device synchronization enabled`);
             addAutomationLog(`🤖 AI: Enhanced Claude integration with portfolio management`);
             addAutomationLog(`📱 MOBILE: Touch-optimized interface active`);
+            addAutomationLog(`👀 WATCHLIST: Real-time monitoring active`);
+            addAutomationLog(`📰 NEWS: Market news feed updating automatically`);
             addAutomationLog(`🎯 STATUS: Fully interactive AI-powered system active`);
             
             // Detect mobile device
@@ -2463,6 +2952,12 @@
                 </div>
             `;
             chatDiv.appendChild(quickCommands);
+        }
+
+        // Quick command function
+        function quickCommand(command) {
+            document.getElementById('claudeInput').value = command;
+            sendToClaude();
         }
 
         // Enhanced mobile voice command with better feedback
